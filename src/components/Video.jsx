@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/carousel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SiTiktok, SiGoogledrive } from "react-icons/si";
-
+import Skeleton from "react-loading-skeleton"
+import "react-loading-skeleton/dist/skeleton.css"
 function CategoryCarousel({ videos }) {
     const [api, setApi] = useState(null);
     const [canScrollPrev, setCanScrollPrev] = useState(false);
@@ -90,8 +91,13 @@ export default function VideoList() {
         const controller = new AbortController();
 
         fetch(`${apiBaseUrl}/api/videos`, { signal: controller.signal })
-            .then((res) => {
+            .then(async (res) => {
+                const contentType = res.headers.get("content-type") || "";
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                if (!contentType.includes("application/json")) {
+                    const snippet = (await res.text()).slice(0, 120);
+                    throw new Error(`Expected JSON but got: ${snippet}`);
+                }
                 return res.json();
             })
             .then((data) => setCategories(Array.isArray(data) ? data : []))
@@ -115,7 +121,34 @@ export default function VideoList() {
                 <TitleHeader title="Product Videos" sub="🎬 Featured Demos" />
 
                 <div className="mt-20 relative">
-                    {loading && <p className="text-gray-400">Loading videos...</p>}
+                    {loading && (
+                        <div className="space-y-14">
+                            {[...Array(2)].map((_, idx) => (
+                                <div key={idx} className="space-y-5">
+                                    <Skeleton height={34} width={220} borderRadius={10} />
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                                        {[...Array(3)].map((__, cardIdx) => (
+                                            <div
+                                                key={cardIdx}
+                                                className="rounded-xl border border-white/10 bg-white/[0.03] p-2"
+                                            >
+                                                <Skeleton
+                                                    className="w-full"
+                                                    containerClassName="block"
+                                                    height={320}
+                                                    borderRadius={12}
+                                                />
+                                                <div className="mt-3 space-y-2">
+                                                    <Skeleton height={14} width="78%" borderRadius={8} />
+                                                    <Skeleton height={12} width="42%" borderRadius={8} />
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                     {error && <p className="text-red-400">{error}</p>}
 
                     {!loading &&
