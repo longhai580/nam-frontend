@@ -49,7 +49,7 @@ const Hero = () => {
                     <div className="flex flex-col gap-7 hero-in">
                         <div>
                             <p className="mb-3 inline-block border-b border-fuchsia-500/70 pb-1 text-xs uppercase tracking-[0.2em] text-white/70">
-                                {t("hero.name", "Ryan")}
+                                {t("hero.name", "Ryan Pham")}
                             </p>
 
                             <h1 className="text-4xl font-black uppercase leading-[0.95] text-white sm:text-5xl md:text-6xl">
