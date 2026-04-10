@@ -35,7 +35,7 @@ const Hero = () => {
                         </div>
 
                         <div className="absolute right-[5%] top-[14%] rotate-[14deg] rounded-2xl border border-sky-300/60 bg-sky-500/20 px-4 py-3 shadow-[0_0_26px_rgba(56,189,248,0.4)]">
-                            <img src="/logos/capcut.png" alt="CapCut" className="h-10 w-auto object-contain" />
+                            <img src="/logos/adobe-pr.png" alt="CapCut" className="h-10 w-auto object-contain" />
                         </div>
 
                         <div className="relative mx-auto w-[80%] md:w-[74%]">
@@ -49,7 +49,7 @@ const Hero = () => {
                     <div className="flex flex-col gap-7 hero-in">
                         <div>
                             <p className="mb-3 inline-block border-b border-fuchsia-500/70 pb-1 text-xs uppercase tracking-[0.2em] text-white/70">
-                                {t("hero.name", "Nam Pham")}
+                                {t("hero.name", "Ryan")}
                             </p>
 
                             <h1 className="text-4xl font-black uppercase leading-[0.95] text-white sm:text-5xl md:text-6xl">

@@ -170,8 +170,8 @@ export default function VideoList() {
                         <div className="mt-12 flex justify-center">
                             <div className="relative w-full max-w-md rounded-2xl border border-white/15 bg-gradient-to-b from-white/10 to-white/5 px-5 py-4 shadow-[0_0_40px_rgba(255,255,255,0.06)] backdrop-blur">
                                 <p className="text-center text-sm md:text-base text-white/85">
-                                    Khám phá thêm video trên{" "}
-                                    <span className="font-semibold text-white">TikTok</span> hoặc{" "}
+                                    See more on{" "}
+                                    <span className="font-semibold text-white">TikTok</span> or{" "}
                                     <span className="font-semibold text-white">Google Drive</span>
                                 </p>
 
