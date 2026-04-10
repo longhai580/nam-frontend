@@ -64,7 +64,7 @@ function CategoryCarousel({ videos }) {
                 <div className="pointer-events-none absolute left-2 md:left-4 top-1/2 z-10 -translate-y-1/2">
                     <div className="video-swipe-hint video-swipe-hint-left">
                         <ChevronLeft className="h-4 w-4" />
-                        <span className="hidden md:inline">Vuot</span>
+                        <span className="hidden md:inline">Back</span>
                     </div>
                 </div>
             )}
@@ -72,7 +72,7 @@ function CategoryCarousel({ videos }) {
             {canScrollNext && (
                 <div className="pointer-events-none absolute right-2 md:right-4 top-1/2 z-10 -translate-y-1/2">
                     <div className="video-swipe-hint video-swipe-hint-right">
-                        <span className="hidden md:inline">Xem them</span>
+                        <span className="hidden md:inline">Vỉew more</span>
                         <ChevronRight className="h-4 w-4" />
                     </div>
                 </div>
